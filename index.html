@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlushMatch Skincare Recommender</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Big Data Skincare Recommender</p>
+        <h1>Find skincare that understands your face.</h1>
+        <p class="hero-text">
+          Describe your skin in normal language. BlushMatch extracts concerns, ingredient preferences,
+          and sensitivities, then ranks products from the cleaned skincare catalog.
+        </p>
+        <div class="hero-actions">
+          <a href="#recommender" class="button primary">Try the recommender</a>
+          <button class="button ghost" id="fillExample" type="button">Use sample concern</button>
+        </div>
+      </div>
+      <div class="skin-orb" aria-hidden="true">
+        <div class="orb-card top">Acne</div>
+        <div class="orb-card right">Redness</div>
+        <div class="orb-card bottom">Barrier care</div>
+      </div>
+    </section>
+
+    <section class="panel" id="recommender">
+      <div class="panel-heading">
+        <p class="eyebrow">Interactive Input</p>
+        <h2>Tell us what your skin is dealing with</h2>
+        <p>
+          Try phrases like “oily with pimples and blackheads” or “dry, flaky, red, and sensitive to fragrance.”
+        </p>
+      </div>
+
+      <form class="recommender-form" id="recommenderForm">
+        <label for="skinText">Your skin description</label>
+        <textarea id="skinText" rows="5" placeholder="Example: My skin is oily and I get pimples, blackheads, and large pores. Fragrance irritates my face."></textarea>
+        <div class="form-footer">
+          <button class="button primary" type="submit">Recommend products</button>
+          <p id="catalogStatus" class="catalog-status">Loading product catalog...</p>
+        </div>
+      </form>
+
+      <div class="insight-grid" aria-live="polite">
+        <article class="insight-card">
+          <span>Skin Type</span>
+          <strong id="skinTypeOutput">Waiting for input</strong>
+        </article>
+        <article class="insight-card">
+          <span>Sensitivity</span>
+          <strong id="sensitivityOutput">Waiting for input</strong>
+        </article>
+        <article class="insight-card wide">
+          <span>Detected Concerns</span>
+          <div class="chip-row" id="concernOutput">
+            <span class="chip muted">None yet</span>
+          </div>
+        </article>
+        <article class="insight-card wide">
+          <span>Avoiding</span>
+          <div class="chip-row" id="avoidOutput">
+            <span class="chip muted">None yet</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="results-section">
+      <div class="panel-heading compact">
+        <p class="eyebrow">Recommendations</p>
+        <h2>Your top matches</h2>
+      </div>
+      <div class="results-grid" id="resultsGrid">
+        <article class="empty-state">
+          <h3>No recommendations yet</h3>
+          <p>Enter your skin description above to generate product matches.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
