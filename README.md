@@ -148,3 +148,6 @@ python src/recommender.py --user U001 --top 5 --summary
 7. implementation details
 8. results and sample outputs
 9. limitations and future work
+
+## View PPT
+(https://canva.link/s8lxc4kcseff9m5)
